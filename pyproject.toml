@@ -1,0 +1,73 @@
+[build-system]
+requires = [
+    "maturin>=1.0,<2.0",
+]
+build-backend = "maturin"
+
+[project]
+name = "diatomite"
+description = "Represent and transform hierarchical clusters for entity resolution."
+authors = [{name = "Leonardo Mazzoen", email = "leo@mazzone.space"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+]
+dynamic = ["version"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+]
+
+[project.urls]
+Homepage = "https://github.com/leo-mazzone/diatomite"
+Repository = "https://github.com/leo-mazzone/diatomite"
+Issues = "https://github.com/leo-mazzone/diatomite"
+
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.4",
+]
+
+[tool.maturin]
+python-source = "python"
+
+[tool.uv]
+default-groups = ["dev", "typing"]
+package = true
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "D",
+    "UP",
+    "TID",
+    "BLE",
+    "PLC",
+    "SIM",
+    "ANN",
+]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
